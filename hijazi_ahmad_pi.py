@@ -35,11 +35,13 @@ def estimate_pi(n):
     print("Total number of points:", n)
     print("Points Within:", point_within)
     print("Applying Monte Carlo Method to approximate Pi:...")
-
+    #Ratio of areas is pi/4 so multiply 4*total points within over total points
+    pi = (4*point_within)/n
+    print(f"Pi Approximation: {pi:.4f}")
     plt.show()
 
 def main():
-    estimate_pi(10000)
+    estimate_pi(15000)
 
 if __name__ == '__main__':
     main()
