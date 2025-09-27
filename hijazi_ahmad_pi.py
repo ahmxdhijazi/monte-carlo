@@ -30,6 +30,10 @@ def estimate_pi(n):
     #Count points inside the circle of radius 1
     point_within = np.sum(distances < 1)
     pi_estimate = 4 * point_within / n
+    #plotting points
+    inside = distances < 1
+    plt.scatter(points[inside, 0], points[inside, 1], color="blue", s=2, label="Inside circle")
+    plt.scatter(points[~inside, 0], points[~inside, 1], color="red", s=2, label="Outside circle")
     plt.title('Estimate of Pi: {:.4f}'.format(pi_estimate))
     plt.show()
     return pi_estimate
