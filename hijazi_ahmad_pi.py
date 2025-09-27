@@ -70,7 +70,8 @@ def main():
         # single histogram for the R estimates, should be gaussian, and it is (:
         plt.figure()
         plt.hist(estimates, bins=30, density=True, alpha=0.7)
-        plt.axvline(np.pi, color='red', linestyle='--', label="True π")
+        #Plot the line for pi so we can see where the gaussian distribution should align with
+        plt.axvline(np.pi, color='red', linestyle='-.', label="True π")
         plt.title(f"Distribution of π Estimates (n={n}, R={R})")
         plt.xlabel("Estimated π")
         plt.ylabel("Density")
