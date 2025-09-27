@@ -53,7 +53,30 @@ def graph_convergence():
     # {END}
 
 def main():
-    graph_convergence()
+    #n values
+    n_values = [10**3, 10**4, 10**5]
+    # number of repetitions
+    R = 500
+
+    for n in n_values:
+        print(f"Running {R} Monte Carlo estimates for n = {n} ...")
+        estimates = []
+        for i in range(R):
+            #so there isnt 500 different scatterplots
+            points = np.random.rand(n, 2)  # shape (n, 2)
+            distances = np.sqrt(points[:, 0] ** 2 + points[:, 1] ** 2)
+            inside = distances < 1
+            estimates.append(4 * np.sum(inside) / n)
+
+        # single histogram for the R estimates, should be gaussian, and it is (:
+        plt.figure()
+        plt.hist(estimates, bins=30, density=True, alpha=0.7)
+        plt.axvline(np.pi, color='red', linestyle='--', label="True π")
+        plt.title(f"Distribution of π Estimates (n={n}, R={R})")
+        plt.xlabel("Estimated π")
+        plt.ylabel("Density")
+        plt.legend()
+        plt.show()
 
 if __name__ == '__main__':
     main()
