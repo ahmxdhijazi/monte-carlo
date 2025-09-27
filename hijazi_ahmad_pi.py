@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import random
 
 def gen_graph():
     # Generating graph with all wanted features.
