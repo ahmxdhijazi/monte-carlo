@@ -37,7 +37,7 @@ def estimate_pi(n):
 def graph_convergence():
     n_values = [10**3, 10**4, 10**5]
     estimates = [estimate_pi(n) for n in n_values]
-    # {CHATGPT CODE: used to display the Convergence Graph for each n}
+    #{CHATGPT CODE: used to display the Convergence Graph for each n}
     plt.figure()
     plt.semilogx(n_values, estimates, 'o-', label="Estimates")
     plt.axhline(y=np.pi, color='r', linestyle='--', label="True π")
