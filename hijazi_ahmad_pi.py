@@ -72,6 +72,15 @@ def main():
         plt.hist(estimates, bins=30, density=True, alpha=0.7)
         #Plot the line for pi so we can see where the gaussian distribution should align with
         plt.axvline(np.pi, color='red', linestyle='-.', label="True π")
+        #{CHATGPT: to do std dev and mean just for to see}
+        mean_est = np.mean(estimates)
+        std_est = np.std(estimates)
+        plt.axvline(mean_est, color='blue', linestyle='--', label=f"Mean = {mean_est:.5f}")
+        plt.text(0.97, 0.95,
+                 f"Mean = {mean_est:.5f}\nStd Dev = {std_est:.5f}",
+                 ha='right', va='top', transform=plt.gca().transAxes,
+                 bbox=dict(boxstyle="round,pad=0.3", facecolor="white", alpha=0.7))
+        #{END}
         plt.title(f"Distribution of π Estimates (n={n}, R={R})")
         plt.xlabel("Estimated π")
         plt.ylabel("Density")
